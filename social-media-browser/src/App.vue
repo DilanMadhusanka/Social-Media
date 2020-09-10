@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <SearchBar v-on:termChange="onTermChange" />
     <VideoList v-bind:videos="videos"/>
   </div>
