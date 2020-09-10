@@ -1,5 +1,8 @@
 <template>
-  <li class="list-group-item">{{video.snippet.title}}</li>
+  <li class="list-group-item">
+    <img v-bind:src="video.snippet.thumbnails.default.url" alt="img" />
+    {{video.snippet.title}}
+  </li>
 </template>
 
 <script>
