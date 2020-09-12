@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <SearchBar v-on:termChange="onTermChange" />
-    <VideoList v-bind:videos="videos"/>
+    <VideoList v-on:videoSelect="onVideoSelect" v-bind:videos="videos" />
   </div>
 </template>
 
@@ -37,6 +37,9 @@ export default {
         .then((response) => {
           this.videos = response.data.items;
         });
+    },
+    onVideoSelect(video) {
+      console.log(video);
     },
   },
 };
