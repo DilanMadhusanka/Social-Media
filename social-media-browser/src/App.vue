@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <SearchBar v-on:termChange="onTermChange" />
+    <VideoDetails v-bind:video="selectedVideo" />
     <VideoList v-on:videoSelect="onVideoSelect" v-bind:videos="videos" />
   </div>
 </template>
@@ -9,6 +10,7 @@
 import axios from "axios";
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
+import VideoDetails from "./components/VideoDetails";
 
 const API_KEY = "AIzaSyCwKVlAIrKwRRhAfknYJnPJ-iZGu1Ueg4I";
 
@@ -17,10 +19,12 @@ export default {
   components: {
     SearchBar,
     VideoList,
+    VideoDetails,
   },
   data() {
     return {
       videos: [],
+      selectedVideo: null,
     };
   },
   methods: {
@@ -39,7 +43,7 @@ export default {
         });
     },
     onVideoSelect(video) {
-      console.log(video);
+      this.selectedVideo = video;
     },
   },
 };
